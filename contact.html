@@ -282,7 +282,8 @@ Belgium																							</div>
 										
 																					
 											<div class="thb-value ">
-																									do@dorastandaert.be																							</div>
+			<a href="#" class="email-link" data-enc="ZG9AZG9yYXN0YW5kYWVydC5iZQ==">Email</a>
+<noscript>do [at] dorastandaert [dot] be</noscript>																							</div>
 																			</li>
 															</ul>
 						</div>
@@ -349,6 +350,23 @@ Belgium																							</div>
 		var knoppen = document.querySelectorAll('.gotop');
 		for (var i = 0; i < knoppen.length; i++) {
 			knoppen[i].addEventListener('click', naarBoven);
+		}
+	}
+	if (document.readyState === 'loading') {
+		document.addEventListener('DOMContentLoaded', init);
+	} else {
+		init();
+	}
+})();
+</script>
+<script>
+(function() {
+	function init() {
+		var links = document.querySelectorAll('.email-link');
+		for (var i = 0; i < links.length; i++) {
+			var adres = atob(links[i].getAttribute('data-enc'));
+			links[i].textContent = adres;
+			links[i].setAttribute('href', 'mailto:' + adres);
 		}
 	}
 	if (document.readyState === 'loading') {
